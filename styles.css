@@ -1,0 +1,196 @@
+/* styles.css */
+
+/* Resetting margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+    position: relative; /* For absolute positioning of animated elements */
+    background: linear-gradient(135deg, rgba(50, 25, 10, 1), rgba(20, 10, 5, 1));
+    color: white; /* Default text color */
+}
+
+/* Animated Background Elements */
+@keyframes moveShapes {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: moveShapes 6s ease-in-out infinite alternate;
+}
+
+/* Background Animation for main container */
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+    }
+    50% {
+        background: linear-gradient(to right, #ff6f61, #ff3b3b);
+    }
+    100% {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+    }
+}
+
+h1 {
+    color: #f0f0f0;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+/* Main container for sorting bars */
+#array-container {
+    display: flex;
+    align-items: flex-end;
+    margin: 20px 0;
+    height: 400px;
+    width: 80%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Individual bars */
+.bar {
+    width: 10px;
+    margin: 0 1px;
+    background-color: #0072ff;
+    transition: height 0.4s ease, background-color 0.4s ease;
+    border-radius: 5px;
+}
+
+/* Colors during sorting */
+.bar.swap {
+    background-color: #ff3b3b; /* Color for swapping bars */
+    animation: swapAnimation 0.4s forwards;
+}
+footer {
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add some space above the footer */
+    font-size: 16px; /* Set font size */
+}
+
+.heart {
+    color: #ff6b6b; /* Color for the heart */
+    font-size: 20px; /* Increase heart size */
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.heart:hover {
+    transform: scale(1.2); /* Grow heart on hover */
+}
+
+
+
+@keyframes swapAnimation {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.2);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.bar.active {
+    background-color: #ffff00; /* Color for active comparison */
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+}
+
+.bar.sorted {
+    background-color: #00ff00; /* Color for sorted bars */
+}
+
+/* Control panel styles */
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #f0f0f0; /* Adjusted control panel text color */
+}
+
+/* Input and button styling */
+input[type="range"],
+input[type="number"],
+button {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: background 0.3s, transform 0.2s;
+    font-size: 1rem; /* Set font size */
+}
+
+input[type="range"] {
+    width: 80%;
+}
+
+button {
+    background-color: #ff6f61; /* Button color */
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+button:hover {
+    background-color: #ff3b3b; /* Button hover color */
+    transform: translateY(-2px) scale(1.05); /* Slight scaling on hover */
+}
+
+input[type="radio"] {
+    margin: 0 5px;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    #array-container {
+        width: 90%;
+        height: 300px; /* Adjust height for smaller screens */
+    }
+    
+    input[type="range"],
+    input[type="number"],
+    button {
+        width: 90%;
+        font-size: 0.9rem; /* Slightly smaller font on mobile */
+    }
+
+    h1 {
+        font-size: 2rem; /* Adjust heading size for smaller screens */
+    }
+}
+
+/* Additional styles for better mobile experience */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem; /* Smaller heading on very small screens */
+    }
+}
