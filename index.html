@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Sorting Visualizer</h1>
+
+    <!-- Background shapes -->
+    <div id="swap-count">Swap Count: 0</div>
+
+    <div id="array-container"></div>
+    
+    <div class="controls">
+        <label for="array-size">Array Size:</label>
+        <input type="range" id="array-size" min="5" max="50" value="30">
+        
+        <label for="speed">Speed (ms):</label>
+        <input type="range" id="speed" min="100" max="1000" value="500">
+        
+        <button id="start-sort">Start Sorting</button>
+        
+        <div>
+            <label><input type="radio" name="sort" value="bubble" checked> Bubble Sort</label>
+            <label><input type="radio" name="sort" value="selection"> Selection Sort</label>
+            <label><input type="radio" name="sort" value="insertion"> Insertion Sort</label>
+            <label><input type="radio" name="sort" value="merge"> Merge Sort</label>
+            <label><input type="radio" name="sort" value="quick"> Quick Sort</label>
+        </div>
+    </div>
+
+    <!-- Added Designed by section with heart symbol -->
+    <footer>
+        <p>Designed by <span class="heart">&hearts;</span> SANGAM SINGH</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
